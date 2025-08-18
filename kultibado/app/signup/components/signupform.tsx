@@ -69,6 +69,37 @@ const SignUpForm: React.FC = () => {
                         
                     </div>
 
+                    <div className="space-y-2">
+                        <Label htmlFor="address">
+                            Address
+                        </Label>
+
+                        <div className = "flex">
+                            <Input 
+                                className="border-0" 
+                                id="streetAddress" 
+                                placeholder="Street Address"
+                                required>
+                            </Input>
+                        </div>
+
+                        <div className = "flex">
+                            <Input 
+                                className="border-0" 
+                                id="city" 
+                                placeholder="City"
+                                required>
+                            </Input>
+
+                            <Input 
+                                className="border-0" 
+                                id="zip" 
+                                placeholder="Zip Code"
+                                required>
+                            </Input>
+                        </div>
+                    </div>
+
                     <Button type = "submit" variant = "ghost" className = "w-full text-white bg-blue-500">
                         Sign Up
                     </Button>
