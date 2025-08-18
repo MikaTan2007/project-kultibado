@@ -12,7 +12,7 @@ import { EyeClosed, Eye, CircleCheck, CircleX, Eraser, } from "lucide-react";
 const LoginForm: React.FC = () => {
 
     return (
-        <Card className = "mx-auto max-w-sm font-sans">
+        <Card className = "mx-auto max-w-sm font-sans border-0">
             <CardHeader className = "space-y-1">
                 <CardTitle className = "text-2xl font-bold flex justify-center">
                     Login
@@ -27,6 +27,7 @@ const LoginForm: React.FC = () => {
                         </Label>
                         <div className = "flex">
                             <Input 
+                                className="border-0" 
                                 id = "email" 
                                 type="email" 
                                 placeholder="@example.com"
@@ -45,7 +46,7 @@ const LoginForm: React.FC = () => {
                         <div className = "flex">
                             <Input 
                                 className="border-0" 
-                                id="firstPassword" 
+                                id="password" 
                                 placeholder="Input Password"
                                 required>
                             </Input>

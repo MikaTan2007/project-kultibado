@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
         colors: {
-            "farm-orange": "#e0ae59"
+            'farm-orange': '#e0ae59',
+            background: 'hsl(var(--background))',
+  			foreground: 'hsl(var(--foreground))',
         }
     },
   },
