@@ -70,6 +70,18 @@ const SignUpForm: React.FC = () => {
         setHasError(false);
     }
 
+    //Password
+    const [showFirstPassword, setShowFirstPassword] = useState(false);
+    const [showSecondPassword, setShowSecondPassword] = useState(false);
+
+    const toggleFirstPasswordVisibility = () => {
+        setShowFirstPassword(!showFirstPassword)
+    }
+
+    const toggleSecondPasswordVisibility = () => {
+        setShowSecondPassword(!showSecondPassword)
+    }
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         
@@ -128,13 +140,13 @@ const SignUpForm: React.FC = () => {
                                 className="border-0" 
                                 id="firstPassword" 
                                 placeholder="Input Password"
-                                type = "password"
+                                type = {showFirstPassword ? "text" : "password"}
                                 value = {firstPassword}
                                 onChange={handleFirstPasswordChange}
                                 required>
                             </Input>
-                            <Button variant = "ghost" size = "icon">
-                                <EyeClosed></EyeClosed>
+                            <Button variant = "ghost" size = "icon" onClick={toggleFirstPasswordVisibility}>
+                                {showFirstPassword ? <Eye></Eye> : <EyeClosed></EyeClosed>}
                             </Button>
                         </div>
                         
@@ -143,14 +155,14 @@ const SignUpForm: React.FC = () => {
                                 className = "border-0" 
                                 id = "secondPassword" 
                                 placeholder = "Confirm Password" 
-                                type = "password"
+                                type = {showSecondPassword ? "text" : "password"}
                                 value = {secondPassword}
                                 onChange={handleSecondPasswordChange}
                                 required
                             >
                             </Input>
-                            <Button variant = "ghost" size = "icon">
-                                <EyeClosed></EyeClosed>
+                            <Button variant = "ghost" size = "icon" onClick={toggleSecondPasswordVisibility}>
+                                {showSecondPassword ? <Eye></Eye> : <EyeClosed></EyeClosed>}
                             </Button>
                         </div>
                         
