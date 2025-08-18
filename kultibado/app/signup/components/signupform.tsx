@@ -72,15 +72,21 @@ const SignUpForm: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(email)
-        console.log(firstPassword)
-        console.log(secondPassword)
-        console.log(firstName)
-        console.log(lastName)
-        console.log(companyName)
-        console.log(street)
-        console.log(city)
-        console.log(zip)
+        
+        if (
+            email == "" || 
+            firstPassword == "" || 
+            secondPassword == "" || 
+            firstName == "" ||
+            lastName == "" ||
+            companyName == "" ||
+            street == "" ||
+            city == "" ||
+            zip == ""
+        ) {
+            setHasError(true);
+            return;
+        }
     }
 
     return (
@@ -228,6 +234,11 @@ const SignUpForm: React.FC = () => {
                                 required>
                             </Input>
                         </div>
+                    </div>
+
+                    <div className = "text-sm flex animate-pulse">
+                        {hasError && <CircleX color = "red" className = "size-5"></CircleX>}
+                        {hasError && <p className = "text-red-600 ml-1">All fields are required</p>}
                     </div>
 
                     <Button 
