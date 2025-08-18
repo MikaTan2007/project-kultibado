@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { EyeClosed, Eye, CircleCheck, CircleX, Eraser, } from "lucide-react";
+import { clear } from "console";
 
 
 const SignUpForm: React.FC = () => {
@@ -82,6 +83,11 @@ const SignUpForm: React.FC = () => {
         setShowSecondPassword(!showSecondPassword)
     }
 
+    //Email
+    const clearEmail = () => {
+        setEmail("");
+    }
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         
@@ -125,7 +131,7 @@ const SignUpForm: React.FC = () => {
                                 onChange={handleEmailChange}
                                 required>
                             </Input>
-                            <Button variant = "ghost" size = "icon">
+                            <Button variant = "ghost" size = "icon" onClick={clearEmail}>
                                 <Eraser></Eraser>
                             </Button>
                         </div>
