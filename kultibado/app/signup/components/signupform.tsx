@@ -12,7 +12,7 @@ import { EyeClosed, Eye, CircleCheck, CircleX, Eraser, } from "lucide-react";
 const SignUpForm: React.FC = () => {
 
     return (
-        <Card className = "mx-auto max-w-sm font-sans">
+        <Card className = "mx-auto max-w-sm font-sans border-0">
             <CardHeader className = "space-y-1">
                 <CardTitle className = "text-2xl font-bold flex justify-center">
                     Sign Up
@@ -27,6 +27,7 @@ const SignUpForm: React.FC = () => {
                         </Label>
                         <div className = "flex">
                             <Input 
+                                className="border-0"
                                 id = "email" 
                                 type="email" 
                                 placeholder="@example.com"
