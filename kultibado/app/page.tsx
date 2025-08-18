@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import SignUpForm from "./landing/signupform";
+import LoginForm from "./landing/loginform";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <div className="flex flex-col items-center pt-10">
       </div>
       <div className = "pt-10">
-        <SignUpForm></SignUpForm>
+        <LoginForm></LoginForm>
       </div>
     </div>
   );

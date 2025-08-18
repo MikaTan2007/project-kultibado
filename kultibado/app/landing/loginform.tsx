@@ -1,0 +1,73 @@
+//React
+import { useState } from "react";
+
+//Design
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { EyeClosed, Eye, CircleCheck, CircleX, Eraser, } from "lucide-react";
+
+
+const LoginForm: React.FC = () => {
+
+    return (
+        <Card className = "mx-auto max-w-sm font-sans">
+            <CardHeader className = "space-y-1">
+                <CardTitle className = "text-2xl font-bold flex justify-center">
+                    Login
+                </CardTitle>
+            </CardHeader>
+            
+            <CardContent>
+                <div className = "space-y-4">
+                    <div className = "space-y-2">
+                        <Label htmlFor="email">
+                            Email
+                        </Label>
+                        <div className = "flex">
+                            <Input 
+                                id = "email" 
+                                type="email" 
+                                placeholder="@example.com"
+                                required>
+                            </Input>
+                            <Button variant = "ghost" size = "icon">
+                                <Eraser></Eraser>
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div className = "space-y-2">
+                        <Label htmlFor="password">
+                            Password
+                        </Label>
+                        <div className = "flex">
+                            <Input 
+                                className="border-0" 
+                                id="firstPassword" 
+                                placeholder="Input Password"
+                                required>
+                            </Input>
+                            <Button variant = "ghost" size = "icon">
+                                <EyeClosed></EyeClosed>
+                            </Button>
+                        </div>
+                        
+                    </div>
+
+                    <Button type = "submit" variant = "ghost" className = "w-full text-white bg-blue-500">
+                        Login
+                    </Button>
+
+                    <CardFooter className = "flex justify-center text-sm">
+                        <Button variant = "link">Don't have an account? Sign up here</Button>
+                    </CardFooter>
+                    
+                </div>
+            </CardContent>
+        </Card>
+    )
+}
+
+export default LoginForm
