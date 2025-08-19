@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ProgressBar from "@/components/ui/progressbar";
 
 export const metadata: Metadata = {
   title: "Kultibado",
@@ -15,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ProgressBar />
         {children}
       </body>
     </html>

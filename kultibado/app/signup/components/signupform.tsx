@@ -9,6 +9,9 @@ import { Button } from "@/components/ui/button";
 import { EyeClosed, Eye, CircleCheck, CircleX, Eraser, } from "lucide-react";
 import { clear } from "console";
 
+//Routing
+import { useNavigation } from "@/hooks/useNavigation";
+
 
 const SignUpForm: React.FC = () => {
     //Variables
@@ -21,6 +24,9 @@ const SignUpForm: React.FC = () => {
     const [street, setStreet] = useState("");
     const [city, setCity] = useState("");
     const [zip, setZip] = useState("");
+
+    //Routing
+    const {navigate} = useNavigation();
 
     //Error
     const [hasError, setHasError] = useState(false);
@@ -88,6 +94,12 @@ const SignUpForm: React.FC = () => {
         setEmail("");
     }
 
+    //Routing
+    const routeLogin = () => {
+        navigate("/")
+        return;
+    }
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         
@@ -108,7 +120,7 @@ const SignUpForm: React.FC = () => {
     }
 
     return (
-        <Card className = "mx-auto max-w-sm font-sans border-0">
+        <Card className = "mx-auto max-w-sm border-0">
             <CardHeader className = "space-y-1">
                 <CardTitle className = "text-2xl font-bold flex justify-center">
                     Sign Up
@@ -118,7 +130,7 @@ const SignUpForm: React.FC = () => {
             <CardContent>
                 <div className = "space-y-4">
                     <div className = "space-y-2">
-                        <Label htmlFor="email">
+                        <Label htmlFor="email" className="font-semibold">
                             Email
                         </Label>
                         <div className = "flex">
@@ -138,7 +150,7 @@ const SignUpForm: React.FC = () => {
                     </div>
 
                     <div className = "space-y-2">
-                        <Label htmlFor="password">
+                        <Label htmlFor="password" className="font-semibold">
                             Password
                         </Label>
                         <div className = "flex">
@@ -175,7 +187,7 @@ const SignUpForm: React.FC = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="name">
+                        <Label htmlFor="name" className="font-semibold">
                             Client Name
                         </Label>
 
@@ -201,7 +213,7 @@ const SignUpForm: React.FC = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="company">
+                        <Label htmlFor="company" className="font-semibold">
                             Company Name
                         </Label>
 
@@ -218,7 +230,7 @@ const SignUpForm: React.FC = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="address">
+                        <Label htmlFor="address" className="font-semibold">
                             Address
                         </Label>
 
@@ -262,14 +274,14 @@ const SignUpForm: React.FC = () => {
                     <Button 
                         type = "submit" 
                         variant = "ghost" 
-                        className = "w-full text-white bg-blue-500"
+                        className = "w-full text-white font-bold bg-blue-600"
                         onClick={handleSubmit}
                     >
                         Sign Up
                     </Button>
 
                     <CardFooter className = "flex justify-center text-sm">
-                        <Button variant = "link">Already have an account? Login here</Button>
+                        <Button variant = "link" onClick={routeLogin}>Already have an account? Login here</Button>
                     </CardFooter>
                     
                 </div>
