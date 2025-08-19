@@ -109,7 +109,6 @@ const SignUpForm: React.FC = () => {
             secondPassword == "" || 
             firstName == "" ||
             lastName == "" ||
-            companyName == "" ||
             street == "" ||
             city == "" ||
             zip == ""
