@@ -51,6 +51,20 @@ const LoginForm: React.FC = () => {
         return;
     }
 
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        console.log(email, password)
+        
+        if (
+            email == "" || 
+            password == ""
+        ) {
+            setHasError(true);
+            return;
+        }
+    }
+
     return (
         <Card className = "mx-auto max-w-sm font-sans border-0">
             <CardHeader className = "space-y-1">
@@ -102,8 +116,18 @@ const LoginForm: React.FC = () => {
                         
                     </div>
 
-                    <Button type = "submit" variant = "ghost" className = "w-full text-white bg-blue-500">
-                        Login
+                    <div className = "text-sm flex animate-pulse">
+                        {hasError && <CircleX color = "red" className = "size-5"></CircleX>}
+                        {hasError && <p className = "text-red-600 ml-1">All fields are required</p>}
+                    </div>
+
+                    <Button 
+                        type = "submit" 
+                        variant = "ghost" 
+                        className = "w-full text-white font-bold bg-blue-600"
+                        onClick={handleSubmit}
+                    >
+                        Log in
                     </Button>
 
                     <CardFooter className = "flex justify-center text-sm">
