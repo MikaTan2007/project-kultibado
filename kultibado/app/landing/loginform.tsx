@@ -102,7 +102,7 @@ const LoginForm: React.FC = () => {
                         <div className = "flex">
                             <Input 
                                 className="border-0" 
-                                id="firstPassword" 
+                                id="password" 
                                 placeholder="Input Password"
                                 type = {showPassword ? "text" : "password"}
                                 value = {password}
