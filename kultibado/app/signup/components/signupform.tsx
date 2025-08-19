@@ -14,6 +14,9 @@ import { useNavigation } from "@/hooks/useNavigation";
 
 
 const SignUpForm: React.FC = () => {
+    //Routing
+    const {navigate} = useNavigation();
+    
     //Variables
     const [email, setEmail] = useState("");
     const [firstPassword, setFirstPassword] = useState("");
@@ -24,9 +27,6 @@ const SignUpForm: React.FC = () => {
     const [street, setStreet] = useState("");
     const [city, setCity] = useState("");
     const [zip, setZip] = useState("");
-
-    //Routing
-    const {navigate} = useNavigation();
 
     //Error
     const [hasError, setHasError] = useState(false);
