@@ -16,7 +16,7 @@ import { useNavigation } from "@/hooks/useNavigation";
 const SignUpForm: React.FC = () => {
     //Routing
     const {navigate} = useNavigation();
-    
+
     //Variables
     const [email, setEmail] = useState("");
     const [firstPassword, setFirstPassword] = useState("");
@@ -213,14 +213,14 @@ const SignUpForm: React.FC = () => {
 
                     <div className="space-y-2">
                         <Label htmlFor="company" className="font-semibold">
-                            Company Name
+                            Company or Organization Name
                         </Label>
 
                         <div className="flex">
                             <Input 
                                 className="border-0" 
                                 id="companyName" 
-                                placeholder="Company Name"
+                                placeholder="Company/Organization name (Optional)"
                                 value = {companyName}
                                 onChange={handleCompanyNameChange}
                                 required>
