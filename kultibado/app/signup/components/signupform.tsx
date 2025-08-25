@@ -115,6 +115,40 @@ const SignUpForm: React.FC = () => {
             setHasError(true);
             return;
         }
+
+        try {
+            
+            const buyerData: Record<string, string> = {
+                email: email,
+                password: firstPassword,
+                first_name: firstName,
+                last_name: lastName,
+                street: street,
+                city: city,
+                zip: zip,
+            };
+
+            if (companyName !== "") {
+                buyerData.company_name = companyName;
+            }
+
+            const response = await fetch("/api/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(buyerData),
+            });
+
+            if (response.ok) {
+                console.log("Successful insertion")
+            } else {
+                console.log("Error")
+            }
+
+        } catch (error) {
+            console.log("Caught error")
+        }
     }
 
     return (
