@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ProgressBar from "@/components/ui/progressbar";
 import Image from "next/image";
+import {Toaster} from 'react-hot-toast';
 
 export const metadata: Metadata = {
   title: "Kultibado",
@@ -28,6 +29,14 @@ export default function RootLayout({
             />
         </div>
         {children}
+        <Toaster 
+          position = "top-center"
+          toastOptions={
+            {
+              duration: 3000
+            }
+          }
+        />
       </body>
     </html>
   );

@@ -6,7 +6,8 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/componen
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { EyeClosed, Eye, CircleCheck, CircleX, Eraser, } from "lucide-react";
+import { EyeClosed, Eye, CircleX, Eraser, } from "lucide-react";
+import toast from "react-hot-toast";
 
 //Routing
 import { useNavigation } from "@/hooks/useNavigation";
@@ -100,6 +101,7 @@ const SignUpForm: React.FC = () => {
     }
 
     const handleSubmit = async (e: React.FormEvent) => {
+
         e.preventDefault();
         
         if (
@@ -117,7 +119,8 @@ const SignUpForm: React.FC = () => {
         }
 
         try {
-            
+            const toastId = toast.loading('Processing...')
+
             const buyerData: Record<string, string> = {
                 email: email,
                 password: firstPassword,
@@ -142,6 +145,8 @@ const SignUpForm: React.FC = () => {
 
             if (response.ok) {
                 console.log("Successful insertion")
+                toast.dismiss()
+                toast.success("Account created")
             } else {
                 console.log("Error")
             }
