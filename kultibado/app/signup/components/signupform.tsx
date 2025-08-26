@@ -149,8 +149,8 @@ const SignUpForm: React.FC = () => {
 
             if (checkEmailData.exists == true) {
                 setAvailableEmail(false);
-                setEmail("This email is already in use")
                 toast.dismiss()
+                toast.error("This email is already being used")
                 return;
             }
 
