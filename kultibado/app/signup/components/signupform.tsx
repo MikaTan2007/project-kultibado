@@ -30,6 +30,7 @@ const SignUpForm: React.FC = () => {
 
     //Error
     const [hasError, setHasError] = useState(false);
+    const [availableEmail, setAvailableEmail] = useState(true);
 
     //Handlers
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -133,6 +134,24 @@ const SignUpForm: React.FC = () => {
 
             if (companyName !== "") {
                 buyerData.company_name = companyName;
+            }
+
+            // Checking duplicate emails
+            const checkEmailResponse = await fetch("/api/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({checkEmail: true, email})
+            }) 
+
+            const checkEmailData = await checkEmailResponse.json();
+
+            if (checkEmailData.exists == true) {
+                setAvailableEmail(false);
+                setEmail("This email is already in use")
+                toast.dismiss()
+                return;
             }
 
             const response = await fetch("/api/signup", {
