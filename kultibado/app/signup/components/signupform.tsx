@@ -35,6 +35,7 @@ const SignUpForm: React.FC = () => {
     //Handlers
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
+        setAvailableEmail(true);
         setHasError(false);
     }
 
@@ -147,7 +148,7 @@ const SignUpForm: React.FC = () => {
 
             const checkEmailData = await checkEmailResponse.json();
 
-            if (checkEmailData.exists == true) {
+            if (checkEmailData.exists == true || availableEmail == false) {
                 setAvailableEmail(false);
                 toast.dismiss()
                 toast.error("This email is already being used")
@@ -163,7 +164,6 @@ const SignUpForm: React.FC = () => {
             });
 
             if (response.ok) {
-                console.log("Successful insertion")
                 toast.dismiss()
                 toast.success("Account created")
             } else {
