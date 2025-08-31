@@ -172,11 +172,13 @@ const SignUpForm: React.FC = () => {
                 toast.dismiss()
                 toast.success("Account created")
             } else {
-                console.log("Error")
+                toast.dismiss()
+                toast.error("There was an error. Please refresh the page")
             }
 
         } catch (error) {
-            console.log("Caught error")
+            toast.dismiss()
+            toast.error("There was an error. Please refresh the page")
         }
     }
 
