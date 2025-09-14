@@ -29,6 +29,43 @@ const AddProductForm: React.FC = () => {
                         Create Product
                     </CardTitle>
                 </CardHeader>
+
+                <CardContent>
+                    <div className="space-y-4">
+                        <div className="space-y-2">
+                            <Input 
+                                className="border-0"
+                                id = "product_name" 
+                                type="product_name" 
+                                placeholder="Product Name"
+                                value = {name}
+                                onChange={
+                                    ((e) => {
+                                        setName(e.target.value);
+                                        //setWeight([Number(e.target.value)]);
+                                    })
+                                }
+                                required>
+                            </Input>
+                        </div>
+
+                        <div className="space-y-2">
+                            <Input 
+                                className="border-0"
+                                id = "weight" 
+                                type="weight" 
+                                placeholder="Product Name"
+                                value = {String(weight)}
+                                onChange={
+                                    ((e) => {
+                                        setWeight([Number(e.target.value)]);
+                                    })
+                                }
+                                required>
+                            </Input>
+                        </div>
+                    </div>
+                </CardContent>
             </Card>
         </div>
     )
